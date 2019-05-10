@@ -1,0 +1,97 @@
+<app-control-panel></app-control-panel>
+<div id = "wrapper">
+    <div id = "fixer">
+                <mat-card class="card">
+                        <mat-card-header>
+                            <img mat-card-avatar class="headerimg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0sBF_i8bp_f1E3r1ONtBu0k85a08Hg6tyirCAHTUFhgB3PwzF">
+                            <mat-card-title>
+                                Open windows
+                            </mat-card-title>
+                            <mat-card-subtitle>
+                                Let some fresh air in there
+                            </mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="https://www.publicdomainpictures.net/pictures/50000/nahled/open-window-frame-clipart.jpg">
+                        <mat-card-content>
+                            <p>
+                                Open all windows in the bedroom for 15 minutes!
+                            </p>
+                            <p>Last opened: {{old | date:'medium'}}</p>
+                            <p *ngIf="windowOpen == true">Windos are open till: {{until | date:'shortTime'}}</p>
+                            <p *ngIf="timeToOpen == true" style="color: red">It's time to open the windows!</p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button mat-raised-button (click)="openWindows()">Open!</button>
+                            <button mat-raised-button (click)="closeWindows()">Close!</button>
+                        </mat-card-actions>
+                    </mat-card>
+
+                <mat-card class="card">
+                        <mat-card-header>
+                            <img mat-card-avatar class="headerimg" src="https://www.merriam-webster.com/assets/mw/images/article/art-wap-article-main/snowflake-3317-983ebf23c2a64cff53b9faccd9eea43c@1x.jpg">
+                            <mat-card-title>
+                                Set temperature
+                            </mat-card-title>
+                            <mat-card-subtitle>
+                                It's cold outside
+                            </mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="https://www.chimneysolutions.com/blog/wp-content/uploads/2017/02/resize-main-product-image-high-country-nz8000-napoleon-fireplaces.jpg">
+                        <mat-card-content>
+                            <p>
+                                Set the temperature of the room using the slider
+                            </p>
+                            <mat-slider
+                                thumbLabel
+                                tickInterval="1"
+                                min="15"
+                                max="25"
+                                step = "1"
+                                value = "20"
+                                autoTicks = "true"
+                                id="set-value"
+                                [(ngModel)]="temperature"
+                                (input)="temperature = $event.value"
+                                ></mat-slider>
+                            <p *ngIf="tempSet == true">
+                                The room's temperature has been set to : {{ temperature }} °C!
+                        
+                            </p>
+                            <p>
+                                Last modified: {{tempDate | date : 'medium'}}
+                            </p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                                <button mat-raised-button (click)="setTemp()">Set temperature!</button>
+                        </mat-card-actions>
+                    </mat-card>
+
+                    <mat-card class="card">
+                        <mat-card-header>
+                            <img mat-card-avatar class="headerimg" src="https://thehowtohelper.com/wp-content/uploads/2016/07/android-power-button-not-working-cover@2x.png">
+                            <mat-card-title>
+                                Turn on PC
+                            </mat-card-title>
+                            <mat-card-subtitle>
+                                It's time...
+                            </mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="https://id-media.apjonlinecdn.com/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/5/L/5LC51PA-1_T1540191203.png">
+                        <mat-card-content>
+                            <p *ngIf="pcOn == false" style="color: red">PC is currently not running</p>
+                            <p *ngIf="pcOn == true" style="color: green">PC is currently running</p>      
+                        </mat-card-content>
+                        <mat-card-actions>
+                                <button mat-button (click)="turnOnPc()"><mat-icon>power_settings_new</mat-icon></button>
+                        </mat-card-actions>
+                    </mat-card>
+    </div>
+</div>
+
+
+
+
+
+
+
+

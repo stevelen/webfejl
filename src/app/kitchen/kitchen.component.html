@@ -1,0 +1,123 @@
+<app-control-panel></app-control-panel>
+<div id = "wrapper">
+    <div id = "fixer">
+
+      <mat-card class="card">
+        <mat-card-header>
+          <img mat-card-avatar class="headerimg" src="https://cdn0.iconfinder.com/data/icons/food-volume-1-4/48/56-512.png">
+            <mat-card-title>
+              Oven settings
+            </mat-card-title>
+            <mat-card-subtitle>
+                Cook something up
+            </mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://media.ao.com/en-GB/Productimages/Images/rvMedium/hotpoint_sa2844hix_ss_01_m_p.jpg">
+        <mat-card-content>      
+                                <mat-form-field>
+                                    <mat-label>Select program</mat-label>
+                                    <mat-select [disabled]="started == true" [(value)]="selectedProgram">
+                                      <mat-option>None</mat-option>
+                                      <mat-option value="Defrost">Defrost</mat-option>
+                                      <mat-option value="Fan and grill">Fan and grill</mat-option>
+                                      <mat-option value="Plate warming">Plate warming</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <br>
+                                <mat-form-field>
+                                    <mat-label>Set timer</mat-label>
+                                    <mat-select [disabled]="started == true" [(value)]="selectedTimer">
+                                      <mat-option>None</mat-option>
+                                      <mat-option value=15>15 minutes</mat-option>
+                                      <mat-option value=30>30 minutes</mat-option>
+                                      <mat-option value=60>1 hour</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <br>
+                                <mat-slider
+                                [disabled] = "started == true"
+                                thumbLabel
+                                tickInterval="1"
+                                min="30"
+                                max="250"
+                                step = "1"
+                                id="set-value"
+                                [(ngModel)]="temperature"
+                                (input)="temperature = $event.value"
+                                ></mat-slider>
+                                <p *ngIf = "started == true" style="color: green">{{selectedProgram}} program, on {{ temperature }} °C is running</p>
+                                <p *ngIf = "started == true">The program will be finished at: {{until | date: 'shortTime'}}</p>
+                                <p *ngIf = "started == false" style="color: red">The program has finished</p>
+                                <p *ngIf = "userError == true" style="color: red">Select all options!</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="startProgram()">Start</button>
+            <button mat-raised-button (click)="stopProgram()">Stop</button>
+        </mat-card-actions>
+      </mat-card>
+
+      <mat-card class="card">
+          <mat-card-header>
+              <img mat-card-avatar class="headerimg" src="http://downloadicons.net/sites/default/files/range-hood-icon-27621.png">
+              <mat-card-title>
+                  Rangehood
+              </mat-card-title>
+              <mat-card-subtitle>
+                It smells bad
+              </mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://www.delonghi.com/Global/Products/Images/Major-Appliances/Rangehoods/Stainless-Steel-Canopy-Debeta90/debeta90-2018-hero-1440x1080.jpg">
+          <mat-card-content>
+              <p *ngIf="rangehoodOn == false" style="color: red">Rangehood is off</p>
+              <p *ngIf="rangehoodOn == true" style="color: green">Rangehood is on</p>      
+          </mat-card-content>
+          <mat-card-actions>
+                  <button mat-button (click)="turnOnRangehood()"><mat-icon>power_settings_new</mat-icon></button>
+          </mat-card-actions>
+      </mat-card>
+
+      <mat-card class="card">
+          <mat-card-header>
+              <img mat-card-avatar class="headerimg" src="https://cdn2.iconfinder.com/data/icons/web-and-mobile-ui-volume-4/48/174-512.png">
+              <mat-card-title>
+                  Refrigerator
+              </mat-card-title>
+              <mat-card-subtitle>
+                Keep it cold
+              </mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://images.homedepot-static.com/productImages/01a87c8a-5e89-430d-8e55-217f1d1f097d/svn/fingerprint-resistant-stainless-steel-whirlpool-french-door-refrigerators-wrx735sdhz-64_1000.jpg">
+          <mat-card-content>
+            <mat-label>Fridge temperature:</mat-label>
+              <mat-slider
+                                thumbLabel
+                                min= "0"
+                                max= "12"
+                                step = "1"
+                                value = "3"
+                                id="set-fridge"
+                                vertical
+                                [(ngModel)]="fridgetemp"
+                                (input)="fridgetemp = $event.value"
+                                ></mat-slider>
+            <mat-label>Freezer temperature:</mat-label>
+                              <mat-slider
+                                thumbLabel
+                                min= "-25"
+                                max= "0"
+                                step = "1"
+                                id="set-freez"
+                                vertical
+                                [(ngModel)]="freeztemp"
+                                (input)="freeztemp = $event.value"
+                              ></mat-slider>
+           <p *ngIf="tempSet == true">The refrigerator's temperature has been set to : {{ fridgetemp }} °C</p>
+           <br><p *ngIf="tempSet == true">The freezer's temperature has been set to: {{ freeztemp }} °C</p>
+          </mat-card-content>
+          <mat-card-actions>
+              <button mat-raised-button (click)="setFridgeTemps()">Set temperature</button>
+          </mat-card-actions>
+      </mat-card>
+
+    </div>
+</div>

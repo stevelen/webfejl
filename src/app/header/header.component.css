@@ -1,0 +1,28 @@
+a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+a:hover {
+    color: #472761;
+    background-color: white;
+    border-radius: 10%;
+}
+
+.navigation-items {
+    list-style: none;
+    padding: 0;
+    margin: auto;
+}
+
+.nav-caption {
+    display: inline-block;
+    padding-left: 6px;
+}
+
+mat-toolbar{
+    width: fit-content;
+    margin: auto;
+    border-radius: 10px;
+}

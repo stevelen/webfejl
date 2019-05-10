@@ -1,0 +1,21 @@
+.card {
+    max-width: 400px;
+    height: fit-content;
+    background-color: rgb(235, 246, 255);
+    float: left;
+  }
+
+.headerimg {
+    
+    background-size: cover;
+  }
+
+#wrapper {
+    position: relative;
+    text-align: center;
+    top: 5%;
+}
+
+#fixer {
+    display: inline-block;
+}
