@@ -12,12 +12,11 @@ import { RolecheckService } from './rolecheck.service';
 
 const routes: Routes = [
   {path: '', component: SigninComponent},
-  {path: 'control', component: ControlPanelComponent, canActivate: [AuthorizationService]},
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent},
-  {path: 'bedroom', component: BedroomComponent},
-  {path: 'kitchen', component: KitchenComponent},
-  {path: 'livingroom', component: LivingroomComponent},
+  {path: 'bedroom', component: BedroomComponent, canActivate: [AuthorizationService]},
+  {path: 'kitchen', component: KitchenComponent, canActivate: [AuthorizationService]},
+  {path: 'livingroom', component: LivingroomComponent, canActivate: [AuthorizationService]},
   {path: 'admin', component: AdminComponent, canActivate: [RolecheckService]}
 ];
 

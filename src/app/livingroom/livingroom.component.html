@@ -1,4 +1,4 @@
-<app-control-panel></app-control-panel>
+
 <div id = "wrapper">
     <div id = "fixer">
                 <mat-card class="card">
@@ -13,8 +13,8 @@
                         </mat-card-header>
                         <img mat-card-image src="https://images-na.ssl-images-amazon.com/images/I/51mAl6XqNiL._SL1000_.jpg">
                         <mat-card-content>
-                          <p *ngIf="lightsOn == false" style="color: purple">Lights are off</p>
-                          <p *ngIf="lightsOn == true" style="color: yellow; text-shadow: 1px 1px #000000;">Lights are on</p>
+                          <p *ngIf="lightsOn == false" [ngStyle]="{'color': 'purple'}">Lights are off</p>
+                          <p *ngIf="lightsOn == true" [ngStyle]="{'color': 'yellow', 'text-shadow': '1px 1px #000000'}">Lights are on</p>
                         </mat-card-content>
                         <mat-card-actions>
                             <button *ngIf="lightsOn == false" mat-raised-button (click)="switchLights()"><mat-icon> highlight</mat-icon></button>
@@ -34,8 +34,8 @@
                         </mat-card-header>
                         <img mat-card-image src="https://bekesmatrix.hu/adatok/2015/05/20150519_72017_tv_dvd_szerviz_az_electric_ben/hirkep.png">
                         <mat-card-content>
-                          <p *ngIf="tvOn == false" style="color: red">TV is off</p>
-                          <p *ngIf="tvOn == true" style="color: green">TV is on</p>
+                          <p *ngIf="tvOn == false" [ngStyle]="{'color': 'red'}">TV is off</p>
+                          <p *ngIf="tvOn == true" [ngStyle]="{'color': 'green'}">TV is on</p>
                           <p *ngIf="tvOn == true" >Channel: {{ channel }}</p>
                           <p *ngIf="tvOn == true && muted == false" >Volume: {{ volume }}</p>
                           <p *ngIf="tvOn == true && muted == true" >Volume:	<mat-icon>volume_off</mat-icon></p>
@@ -63,8 +63,8 @@
                         </mat-card-header>
                         <img mat-card-image src="https://images.homedepot-static.com/productImages/05ce18b8-dd8d-401e-8d77-301eb93739ee/svn/smooth-white-ready-to-paint-feather-river-doors-doors-with-glass-873191-3a4-64_1000.jpg">
                         <mat-card-content>
-                          <p *ngIf="doorsOpen == false" style="color: red">The doors are locked</p>
-                          <p *ngIf="doorsOpen == true" style="color: green">The doors are unlocked</p>
+                          <p *ngIf="doorsOpen == false" [ngStyle]="{'color': 'red'}">The doors are locked</p>
+                          <p *ngIf="doorsOpen == true" [ngStyle]="{'color': 'green'}">The doors are unlocked</p>
                         </mat-card-content>
                         <mat-card-actions>
                             <button *ngIf="doorsOpen == false" mat-raised-button (click)="lockDoors()"><mat-icon>lock_open</mat-icon></button>

@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
-import { HeaderComponent } from './header/header.component';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule }   from '@angular/forms';
@@ -19,20 +18,21 @@ import { KitchenComponent } from './kitchen/kitchen.component';
 import {MatSelectModule} from '@angular/material/select';
 import { LivingroomComponent } from './livingroom/livingroom.component';
 import { AdminComponent } from './admin/admin.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     ControlPanelComponent,
     SignupComponent,
     SigninComponent,
     BedroomComponent,
     KitchenComponent,
     LivingroomComponent,
-    AdminComponent
+    AdminComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,

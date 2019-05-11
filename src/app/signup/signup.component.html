@@ -1,4 +1,4 @@
-<app-header></app-header>
+
 <section class="signup-form">
   <form fxLayout="column" fxLayoutAttribute="center center" 
   #f="ngForm" (ngSubmit)="submitForm(f)">
@@ -15,6 +15,7 @@
       name="email" #email="ngModel">
     </mat-form-field>
     <mat-error *ngIf="email.hasError('required')">Email cannot be empty</mat-error>
-    <button mat-raised-button type="submit" color="primary">Submit</button>
+    <button mat-raised-button type="submit" color="primary" [ngStyle]="{'margin' : '10px'}">Submit</button>
+    <button mat-raised-button color="primary" routerLink="/signin" [ngStyle]="{'margin' : '10px'}"><mat-icon>arrow_back_ios</mat-icon>Back</button>
   </form>
 </section>

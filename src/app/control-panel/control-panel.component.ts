@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-control-panel',
@@ -6,11 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./control-panel.component.css']
 })
 export class ControlPanelComponent implements OnInit {
+  @Output() sidenavToggle = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit() {
   }
+  
+  onToggleSidenav() {
+    this.sidenavToggle.emit();
+  }
+
   logout() {
     localStorage.removeItem("username");
   }

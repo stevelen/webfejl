@@ -1,4 +1,4 @@
-<app-control-panel></app-control-panel>
+
 <div id = "wrapper">
     <div id = "fixer">
                 <mat-card class="card">
@@ -21,9 +21,9 @@
                                 minutes!
                             </p>
                             <p>Last opened: {{old | date:'medium'}}</p>
-                            <p *ngIf="windowOpen == true" style="color: green">Windos are open till: {{until | date:'shortTime'}}</p>
-                            <p *ngIf="windowOpen == false" style="color: red">Windows are closed</p>
-                            <p *ngIf="timeToOpen == true" style="color: red">It's time to open the windows!</p>
+                            <p *ngIf="windowOpen == true" [ngStyle]="{'color': 'green'}">Windos are open till: {{until | date:'shortTime'}}</p>
+                            <p *ngIf="windowOpen == false" [ngStyle]="{'color': 'red'}">Windows are closed</p>
+                            <p *ngIf="timeToOpen == true" [ngStyle]="{'color': 'red'}">It's time to open the windows!</p>
                         </mat-card-content>
                         <mat-card-actions>
                             <button mat-raised-button (click)="openWindows()">Open!</button>
@@ -82,8 +82,8 @@
                         </mat-card-header>
                         <img mat-card-image src="https://id-media.apjonlinecdn.com/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/5/L/5LC51PA-1_T1540191203.png">
                         <mat-card-content>
-                            <p *ngIf="pcOn == false" style="color: red">PC is currently not running</p>
-                            <p *ngIf="pcOn == true" style="color: green">PC is currently running</p>      
+                            <p *ngIf="pcOn == false" [ngStyle]="{'color': 'red'}">PC is currently not running</p>
+                            <p *ngIf="pcOn == true" [ngStyle]="{'color': 'green'}">PC is currently running</p>      
                         </mat-card-content>
                         <mat-card-actions>
                                 <button mat-button (click)="turnOnPc()"><mat-icon>power_settings_new</mat-icon></button>

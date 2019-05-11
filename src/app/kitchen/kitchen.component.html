@@ -1,4 +1,4 @@
-<app-control-panel></app-control-panel>
+
 <div id = "wrapper">
     <div id = "fixer">
 
@@ -44,10 +44,10 @@
                                 id="set-value"
                                 [(ngModel)]="temperature"
                                 ></mat-slider>
-                                <p *ngIf = "started == true" style="color: green">{{selectedProgram}} program on {{ temperature }} °C is running</p>
+                                <p *ngIf = "started == true" [ngStyle]="{'color': 'green'}">{{selectedProgram}} program on {{ temperature }} °C is running</p>
                                 <p *ngIf = "started == true">The program will be finished at: {{until | date: 'shortTime'}}</p>
-                                <p *ngIf = "started == false" style="color: red">The program is finished</p>
-                                <p *ngIf = "userError == true" style="color: red">Select all options!</p>
+                                <p *ngIf = "started == false" [ngStyle]="{'color': 'red'}">The program is finished</p>
+                                <p *ngIf = "userError == true" [ngStyle]="{'color': 'red'}">Select all options!</p>
         </mat-card-content>
         <mat-card-actions>
             <button mat-raised-button (click)="startProgram()">Start</button>
@@ -67,8 +67,8 @@
           </mat-card-header>
           <img mat-card-image src="https://www.delonghi.com/Global/Products/Images/Major-Appliances/Rangehoods/Stainless-Steel-Canopy-Debeta90/debeta90-2018-hero-1440x1080.jpg">
           <mat-card-content>
-              <p *ngIf="rangehoodOn == false" style="color: red">Rangehood is off</p>
-              <p *ngIf="rangehoodOn == true" style="color: green">Rangehood is on</p>      
+              <p *ngIf="rangehoodOn == false" [ngStyle]="{'color': 'red'}">Rangehood is off</p>
+              <p *ngIf="rangehoodOn == true" [ngStyle]="{'color' : 'green'}">Rangehood is on</p>      
           </mat-card-content>
           <mat-card-actions>
                   <button mat-button (click)="turnOnRangehood()"><mat-icon>power_settings_new</mat-icon></button>
