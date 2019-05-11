@@ -43,11 +43,10 @@
                                 step = "1"
                                 id="set-value"
                                 [(ngModel)]="temperature"
-                                (input)="temperature = $event.value"
                                 ></mat-slider>
-                                <p *ngIf = "started == true" style="color: green">{{selectedProgram}} program, on {{ temperature }} °C is running</p>
+                                <p *ngIf = "started == true" style="color: green">{{selectedProgram}} program on {{ temperature }} °C is running</p>
                                 <p *ngIf = "started == true">The program will be finished at: {{until | date: 'shortTime'}}</p>
-                                <p *ngIf = "started == false" style="color: red">The program has finished</p>
+                                <p *ngIf = "started == false" style="color: red">The program is finished</p>
                                 <p *ngIf = "userError == true" style="color: red">Select all options!</p>
         </mat-card-content>
         <mat-card-actions>
@@ -63,7 +62,7 @@
                   Rangehood
               </mat-card-title>
               <mat-card-subtitle>
-                It smells bad
+                Overcooked
               </mat-card-subtitle>
           </mat-card-header>
           <img mat-card-image src="https://www.delonghi.com/Global/Products/Images/Major-Appliances/Rangehoods/Stainless-Steel-Canopy-Debeta90/debeta90-2018-hero-1440x1080.jpg">
@@ -98,7 +97,6 @@
                                 id="set-fridge"
                                 vertical
                                 [(ngModel)]="fridgetemp"
-                                (input)="fridgetemp = $event.value"
                                 ></mat-slider>
             <mat-label>Freezer temperature:</mat-label>
                               <mat-slider
@@ -109,7 +107,6 @@
                                 id="set-freez"
                                 vertical
                                 [(ngModel)]="freeztemp"
-                                (input)="freeztemp = $event.value"
                               ></mat-slider>
            <p *ngIf="tempSet == true">The refrigerator's temperature has been set to : {{ fridgetemp }} °C</p>
            <br><p *ngIf="tempSet == true">The freezer's temperature has been set to: {{ freeztemp }} °C</p>

@@ -15,6 +15,8 @@ export class BedroomComponent implements OnInit {
   timeToOpen: boolean;
   pcOn: boolean;
   temperature: number;
+  duration: number;
+  countdown: any;
 
   constructor() {
     this.windowOpen = false;
@@ -29,25 +31,30 @@ export class BedroomComponent implements OnInit {
   openWindows(){
     this.old = new Date();
     let oldDateObj: number = Date.now();
-    this.until = new Date(oldDateObj + 15*60000);
+    this.until = new Date(oldDateObj + this.duration*60000);
     this.windowOpen = true;
     this.timeToOpen = false;
+    this.stopCount();
     console.log("windows are open!");
     setTimeout(() => {
       if(this.windowOpen == true){
         this.closeWindows();
       }
-    }, 15 * 60000)
+    }, this.duration * 60000)
 
   }
 
   closeWindows(){
     this.windowOpen = false;
     console.log("windows are closed!");
-    setTimeout(() => {
+    this.countdown = setTimeout(() => {
       alert("It's time to open the windows!");
       this.timeToOpen = true;
     }, 5000);
+  }
+
+  stopCount() {
+    clearTimeout(this.countdown); 
   }
 
   setTemp(){

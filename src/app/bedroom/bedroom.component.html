@@ -14,10 +14,15 @@
                         <img mat-card-image src="https://www.publicdomainpictures.net/pictures/50000/nahled/open-window-frame-clipart.jpg">
                         <mat-card-content>
                             <p>
-                                Open all windows in the bedroom for 15 minutes!
+                                Open all windows in the bedroom for 
+                                <mat-form-field style="width: 80px">
+                                <input matInput type="number"  min="1" max="200" [(ngModel)]="duration" [disabled]="windowOpen == true"> 
+                                </mat-form-field>
+                                minutes!
                             </p>
                             <p>Last opened: {{old | date:'medium'}}</p>
-                            <p *ngIf="windowOpen == true">Windos are open till: {{until | date:'shortTime'}}</p>
+                            <p *ngIf="windowOpen == true" style="color: green">Windos are open till: {{until | date:'shortTime'}}</p>
+                            <p *ngIf="windowOpen == false" style="color: red">Windows are closed</p>
                             <p *ngIf="timeToOpen == true" style="color: red">It's time to open the windows!</p>
                         </mat-card-content>
                         <mat-card-actions>
@@ -51,7 +56,6 @@
                                 autoTicks = "true"
                                 id="set-value"
                                 [(ngModel)]="temperature"
-                                (input)="temperature = $event.value"
                                 ></mat-slider>
                             <p *ngIf="tempSet == true">
                                 The room's temperature has been set to : {{ temperature }} °C!

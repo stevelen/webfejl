@@ -18,7 +18,8 @@ import {MatSliderModule} from '@angular/material/slider';
 import { KitchenComponent } from './kitchen/kitchen.component'; 
 import {MatSelectModule} from '@angular/material/select';
 import { LivingroomComponent } from './livingroom/livingroom.component';
-import { AdminComponent } from './admin/admin.component'; 
+import { AdminComponent } from './admin/admin.component';
+
 
 
 @NgModule({
