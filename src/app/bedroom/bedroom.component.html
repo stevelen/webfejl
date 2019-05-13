@@ -56,9 +56,10 @@
                                 autoTicks = "true"
                                 id="set-value"
                                 [(ngModel)]="temperature"
+                                (valueChange)="unsavedTempChange = true"
                                 ></mat-slider>
                             <p *ngIf="tempSet == true">
-                                The room's temperature has been set to : {{ temperature }} °C!
+                                The room's temperature has been set to : <span *ngIf="unsavedTempChange == true" [ngStyle] = "{'color':'red'}">{{ temperature }}</span><span *ngIf="unsavedTempChange == false" [ngStyle] = "{'color':'green'}">{{ temperature }}</span> °C!
                         
                             </p>
                             <p>

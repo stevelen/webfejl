@@ -17,13 +17,17 @@ export class KitchenComponent implements OnInit {
   userError: boolean;
   fridgetemp: number;
   freeztemp: number;
-  tempSet: boolean
+  tempSet: boolean;
+  unsavedFreezerChange: boolean;
+  unsavedFridgeChange: boolean;
 
 
   constructor() { 
     this.rangehoodOn = false;
     this.fridgetemp = 6;
     this.freeztemp = -17;
+    this.unsavedFreezerChange = false;
+    this.unsavedFridgeChange = false;
   }
 
   ngOnInit() {
@@ -69,9 +73,9 @@ export class KitchenComponent implements OnInit {
 
   setFridgeTemps(){
     this.tempSet = true;
+    this.unsavedFreezerChange = false;
+    this.unsavedFridgeChange = false;
     console.log("Fridge temp set to: " + this.fridgetemp +"\nFreezer temp set to: " + this.freeztemp);
   }
-
-  
 
 }

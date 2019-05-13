@@ -17,12 +17,14 @@ export class BedroomComponent implements OnInit {
   temperature: number;
   duration: number;
   countdown: any;
+  unsavedTempChange: boolean;
 
   constructor() {
     this.windowOpen = false;
     this.timeToOpen = false;
     this.pcOn = false;
     this.temperature = 17;
+    this.unsavedTempChange = false;
    }
 
   ngOnInit() {
@@ -60,6 +62,7 @@ export class BedroomComponent implements OnInit {
   setTemp(){
     this.tempSet = true;
     this.tempDate = new Date();
+    this.unsavedTempChange = false;
     console.log("Temp set to: " + this.temperature);
   }
 

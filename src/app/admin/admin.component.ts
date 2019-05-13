@@ -13,9 +13,9 @@ export class AdminComponent implements OnInit {
 
 
   constructor() { 
-    this.userList = [{name: "Bob", role: "user"}, 
-    {name: "Jack", role: "user"}, 
-    {name: "Thomas", role: "user"}];
+    this.userList = [{name: "Bob", kitchen: true, bedroom: true, livingroom: true, admin: false}, 
+    {name: "Jack", kitchen: false, bedroom: true, livingroom: true, admin: false}, 
+    {name: "Thomas", kitchen: false, bedroom: true, livingroom: false, admin: false}];
   }
 
   ngOnInit() {
@@ -29,6 +29,12 @@ export class AdminComponent implements OnInit {
       user.role = "user";
       console.log(user.name + "'s role modified to user");
     }
+
+  }
+
+  logchanges(user: any){
+
+      console.log(user);
 
   }
 

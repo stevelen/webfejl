@@ -19,6 +19,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { LivingroomComponent } from './livingroom/livingroom.component';
 import { AdminComponent } from './admin/admin.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
 
 
 
@@ -44,7 +45,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     MatCardModule,
     MatGridListModule,
     MatSliderModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
